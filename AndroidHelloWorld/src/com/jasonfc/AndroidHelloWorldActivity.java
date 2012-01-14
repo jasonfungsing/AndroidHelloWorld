@@ -12,6 +12,7 @@ public class AndroidHelloWorldActivity extends Activity {
 
 	private EditText text;
 	private Uri url;
+	private String result;
 
 	/** Called when the activity is first created. */
 	@Override
@@ -29,8 +30,17 @@ public class AndroidHelloWorldActivity extends Activity {
 	}
 
 	public void onClickShowSourceWeb(View view) {
-		isInputValid();
+		if (isInputValid()) {
+			HttpAsyncTask task = new HttpAsyncTask(url.toString(), result);
+			task.execute();
+			showSourceCodeView();
+		}
+	}
 
+	public void showSourceCodeView() {
+		Intent i = new Intent(this, SourceCodeViewActivity.class);
+		i.putExtra("page", result);
+		startActivity(i);
 	}
 
 	private boolean isInputValid() {
@@ -46,10 +56,7 @@ public class AndroidHelloWorldActivity extends Activity {
 			url = Uri.parse(uri);
 			isInputValid = true;
 		}
-
 		return isInputValid;
 	}
-	
-	
-	
+
 }
