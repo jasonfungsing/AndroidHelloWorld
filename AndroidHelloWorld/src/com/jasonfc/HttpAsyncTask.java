@@ -18,10 +18,12 @@ public class HttpAsyncTask extends AsyncTask<String, Integer, String> {
 
 	private String url;
 	private String result;
+	private AndroidHelloWorldActivity ahw;
 
-	public HttpAsyncTask(String url, String result) {
+	public HttpAsyncTask(String url, String result, AndroidHelloWorldActivity ahw) {
 		this.url = url;
 		this.result = result;
+		this.ahw=ahw;
 	}
 
 	@Override
@@ -64,7 +66,7 @@ public class HttpAsyncTask extends AsyncTask<String, Integer, String> {
 
 	@Override
 	protected void onPostExecute(String result) {
-
+		ahw.showSourceCodeView(result);
 
 	}
 

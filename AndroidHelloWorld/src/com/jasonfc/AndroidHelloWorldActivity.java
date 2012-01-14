@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -31,13 +32,12 @@ public class AndroidHelloWorldActivity extends Activity {
 
 	public void onClickShowSourceWeb(View view) {
 		if (isInputValid()) {
-			HttpAsyncTask task = new HttpAsyncTask(url.toString(), result);
+			HttpAsyncTask task = new HttpAsyncTask(url.toString(), result, this);
 			task.execute();
-			showSourceCodeView();
 		}
 	}
 
-	public void showSourceCodeView() {
+	public void showSourceCodeView(String result) {
 		Intent i = new Intent(this, SourceCodeViewActivity.class);
 		i.putExtra("page", result);
 		startActivity(i);
