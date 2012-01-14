@@ -4,13 +4,12 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-import android.content.Intent;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.DefaultHttpClient;
 
-import android.content.Intent;
+import android.app.ProgressDialog;
 import android.os.AsyncTask;
 import android.util.Log;
 
@@ -19,6 +18,7 @@ public class HttpAsyncTask extends AsyncTask<String, Integer, String> {
 	private String url;
 	private String result;
 	private AndroidHelloWorldActivity ahw;
+	private ProgressDialog dialog;
 
 	public HttpAsyncTask(String url, String result, AndroidHelloWorldActivity ahw) {
 		this.url = url;
@@ -61,11 +61,14 @@ public class HttpAsyncTask extends AsyncTask<String, Integer, String> {
 
 	@Override
 	protected void onPreExecute() {
-
+		dialog = new ProgressDialog(ahw, ProgressDialog.STYLE_SPINNER); 
+        dialog.setMessage("Please, wait...");
+        dialog.show();
 	}
 
 	@Override
 	protected void onPostExecute(String result) {
+		dialog.dismiss();
 		ahw.showSourceCodeView(result);
 
 	}
