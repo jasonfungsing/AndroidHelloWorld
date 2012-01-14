@@ -6,7 +6,27 @@
 
     <TextView
         android:layout_width="fill_parent"
+        android:layout_height="wrap_content" />
+
+    <EditText
+        android:id="@+id/editText1"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/hello" />
+        android:inputType="textUri"
+        android:hint="@string/edittext_hint" />
+
+    <Button
+        android:id="@+id/button1_showwebview"
+        android:layout_width="240dp"
+        android:layout_height="wrap_content"
+        android:onClick="onClickShowWebView"
+        android:text="@string/button1_showwebview" />
+
+    <Button
+        android:id="@+id/button2_showsourcecode"
+        android:layout_width="240dp"
+        android:layout_height="wrap_content"
+         android:onClick="onClickShowSourceWeb"
+        android:text="@string/button2_showsourcecode" />
 
 </LinearLayout>

@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="hello">Hello World, AndroidHelloWorldActivity!</string>
     <string name="app_name">AndroidHelloWorld</string>
+    <string name="button1_showwebview">Show Web View</string>
+    <string name="button2_showsourcecode">Show Source Code</string>
+    <string name="edittext_hint">Enter uri, like www.google.com</string>
+    
 
 </resources>
