@@ -47,14 +47,6 @@ public class HttpAsyncTask extends AsyncTask<String, Integer, String> {
 			Log.i("info", page.toString());
 		} catch (Exception e) {
 			e.printStackTrace();
-		} finally {
-			if (in != null) {
-				try {
-					in.close();
-				} catch (IOException e) {
-					e.printStackTrace();
-				}
-			}
 		}
 		return page;
 	}
